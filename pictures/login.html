@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAccessPortalAppointment</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+
+<header>
+    <h1>Welcome Back</h1>
+    <h1>Login</h1>
+    <p>Please enter your credentials</p>
+</header>
+
+<form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required placeholder="Enter your username">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required placeholder="Enter your password">
+
+    <button type="submit">Login</button>
+</form>
+
+<p id="errorMessage" style="color: red; display: none;"></p>
+
+<script>
+    document.getElementById('loginForm').onsubmit = function(event) {
+        event.preventDefault(); // Prevent form submission
+       
+        // Sample username and password
+        var validUsername = "user"; // Replace with actual username
+        var validPassword = "pass";  // Replace with actual password
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Simple authentication check
+        if (username === validUsername && password === validPassword) {
+            window.location.href = "booking.html"; // Redirects to booking page on success
+        } else {
+            document.getElementById('errorMessage').innerText = "Invalid username or password.";
+            document.getElementById('errorMessage').style.display = "block"; // Show error message
+        }
+    };
+</script>
+
+</body>
+</html> 

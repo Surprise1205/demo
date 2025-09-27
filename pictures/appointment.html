@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Appointment Booking</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+
+<header>
+    <h1>Book Your Appointment</h1>
+    <p>Edenvale and Joburg Gen Hospitals</p>
+</header>
+
+<form action="send_email.php" method="post">
+    <label for="hospital">Select Hospital:</label>
+    <select id="hospital" name="hospital" required>
+        <option value="edenvale">Edenvale Hospital</option>
+        <option value="joburg_gen">Joburg Gen Hospital</option>
+    </select>
+
+    <label for="service">Select Service:</label>
+    <select id="service" name="service" required>
+        <option value="blood_pressure">Blood Pressure Check</option>
+        <option value="check_up">General Check-Up</option>
+        <option value="medication">Receive Medication</option>
+    </select>
+
+    <label for="date">Select Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Select Time:</label>
+    <select id="time" name="time" required>
+        <!-- Time options will be populated by JavaScript -->
+    </select>
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+    <label for="contact">Contact Number:</label>
+    <input type="tel" id="contact" name="contact" required placeholder="Enter your contact number">
+
+    <button type="submit">Book Appointment</button>
+</form>
+
+<script>
+    // Populate the date field with the next 7 days
+    window.onload = function() {
+        const dateInput = document.getElementById('date');
+        const today = new Date();
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+       
+        // Create an array of future dates
+        for (let i = 0; i < 7; i++) {
+            const futureDate = new Date(today);
+            futureDate.setDate(today.getDate() + i);
+            const formattedDate = futureDate.toLocaleDateString('en-CA', options); // Format as YYYY-MM-DD
+            dateInput.append(new Option(formattedDate, formattedDate));
+        }
+       
+        // Populate the time options
+        const timeSelect = document.getElementById('time');
+        for (let hour = 8; hour < 18; hour++) { // For example, 8 AM to 5 PM
+            for (let minute = 0; minute < 60; minute += 30) { // Every 30 minutes
+                const time = `${hour}:${minute < 10 ? '0' + minute : minute}`;
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = `${hour % 12 || 12}:${minute < 10 ? '0' + minute : minute} ${hour < 12 ? 'AM' : 'PM'}`;
+                timeSelect.appendChild(option);
+            }
+        }
+    };
+</script>
+
+</body>
+</html> 
