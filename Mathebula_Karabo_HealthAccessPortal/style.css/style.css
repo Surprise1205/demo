@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, snans, sans-serif;
+    background-image: url(../../pictures/11244816-tropical-beach-at-beautiful-sunset-nature-background.jpg);
+    background-size: cover;
+    background-attachment: fixed ;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    position:sticky;
+    top:0;
+    background-color: rgba(0,0,0,0.8); /* blue color for the header */
+    color: rgb(189, 35, 94);
+    z-index:1000;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(206, 41, 41, 0.7);
+    text-align: center;
+
+}
+nav
+ {
+    position:relative;
+    width: 100%;
+    height: 50px;
+    background:rgba(226, 34, 82, 0.7);
+    border-radius: 8px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+nav a
+{
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color:#0000ff;
+    text-decoration-style:double;
+    padding: 23px;
+    z-index: 1;
+    
+}
+nav span
+{
+position:absolute;
+top:0;
+left:0;
+width: 95px;
+height:100%;
+background:linear-gradient(45deg,#4f1919,#ff3333);
+border-radius:8px;
+width:110px;
+text-align: center;
+}
+nav a:nth-child(4):hover-span
+{
+left:289px;
+width:115px;
+}
+.card {
+    background-color: rgba(255,255 ,255 , 0.4); /* Light blue background for the cards */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(216, 34, 34, 0.9);
+}
+
+h2 {
+    color: #007bff; /* Blue color for headings */
+}
+footer {
+    position:sticky;
+    top:0;
+    background-color: rgba(0,0,0,0.8); /* blue color for the header */
+    color: rgb(54, 22, 235);
+    z-index:1000;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(206, 41, 41, 0.7);
+    text-align: center;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hidden */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#backToTop:hover {
+    background-color: #0056b3;
+} 
